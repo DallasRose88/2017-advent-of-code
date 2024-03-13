@@ -1,0 +1,14 @@
+f = open('code','r')
+
+checksum = 0
+for line in f:
+    split = line.strip().split(',')
+    biggest = 0
+    smallest = 10000
+    for x in split:
+        if int(x) > biggest:
+            biggest = int(x)
+        if int(x) < smallest:
+            smallest = int(x)
+    checksum += (int(biggest) - int(smallest))
+print('part 1',checksum)
