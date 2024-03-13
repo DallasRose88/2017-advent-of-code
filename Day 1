@@ -1,0 +1,18 @@
+f = open('code','r')
+content= f.readlines()
+
+lst = []
+duplicates = 0
+for x in content:
+    for (split) in x:
+        lst.append(int(split))
+x = len(lst)
+mult = x//2 
+num = 0
+while num < mult:
+    if lst[num] == lst[num +mult]:
+        duplicates += lst[num] *2
+
+    num += 1
+print(duplicates)
+
