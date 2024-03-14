@@ -1,14 +1,37 @@
 f = open('code','r')
 
 checksum = 0
+checksum2 = 0
 for line in f:
     split = line.strip().split(',')
     biggest = 0
     smallest = 10000
+    total = 0
     for x in split:
+        total += int(x)
         if int(x) > biggest:
             biggest = int(x)
         if int(x) < smallest:
             smallest = int(x)
     checksum += (int(biggest) - int(smallest))
+    #Part 2 
+    big = []
+    small = []
+    div = total/16
+    for x in split:
+        if int(x) > div:
+            big.append(int(x))
+        if int(x) < div:
+            small.append(int(x))
+    print('b',big)
+    print('s',small)
+    for num in big:
+        x = len(small)
+        while x > 0:
+            if num%small[x-1] == 0:
+                checksum2 += num/small[x-1]
+            x -= 1
+
+    
 print('part 1',checksum)
+print('part2',checksum2)
