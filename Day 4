@@ -1,0 +1,14 @@
+f = open('code','r')
+
+count = 0 
+for line in f:
+    remove = line.replace('\n','')
+    split = remove.split(' ')
+    num = 0
+    for x in split:
+        times = split.count(x)
+        if times == 1:
+            num += 1
+    if num == len(split):
+        count += 1
+print('part 1 =',count)
