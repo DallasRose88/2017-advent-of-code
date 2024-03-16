@@ -1,0 +1,31 @@
+num = 368078
+
+
+x= 3
+row =0 
+row1 = 0
+row2 = 0
+count = 0
+while x < 1024:
+    count += 1
+    if x*x >= num:
+        row = x
+        row1 = x*x
+        row2 = (x-2)*(x-2)
+        break
+    x += 2
+mid = (row -1) //2
+if num <= row1 and num >= (row1-row+1):
+    middle = row1 - mid
+    across = abs(middle - num)
+if num <= (row1-row+1) and num >= ((row1-row+1)-row+1):
+    middle = (row1-row) - mid +1
+    across = abs(middle - num)
+if num <= ((row1-row+1)-row+1) and num >= ((row1-row-row+2)-row+1):
+    middle = (row1-row-row+1) - mid +1
+    across = abs(middle - num)
+if num <= ((row1-row-row+2)-row+1) and num >= ((row1-row-row-row+3)-row+1):
+    middle = (row1-row-row-row+2) - mid +1
+    across = abs(middle - num)
+
+print('part 1 =',count+across)
