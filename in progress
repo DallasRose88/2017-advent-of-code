@@ -1,0 +1,26 @@
+Day 4 2016
+f = open('trial','r')
+
+real = 0
+for line in f:
+    dashes = line.count('-')
+    if dashes > 1:
+        totals = []
+        letters= []
+        x = 0
+        while x < len(line):
+            if line[x].isalpha():
+                num = line.count(line[x])
+                if line[x] not in letters:
+                    letters.append(line[x])
+                    totals.append(num)
+            x+= 1
+        m = 0
+        checksum = []
+        while m < 5:
+            biggest = max(totals)
+            place = totals.index(biggest)
+            checksum.append(letters[place])
+            m += 1
+print('t',totals)
+print('l', letters)
